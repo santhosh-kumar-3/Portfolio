@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import mainimg1 from '../assests/main.png'
-import { FaFacebook } from "react-icons/fa";
 import SmallCards from '../cards/SmallCards';
+import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
@@ -79,9 +79,9 @@ const Hero = () => {
         </motion.p>
 
         <div className='mt-16 flex gap-6'>
-           <SmallCards icon={<FaFacebook size={24}/>} />
-           <SmallCards icon={<FaLinkedin  size={24}/>} />
-           <SmallCards icon={<FaInstagram  size={24}/>} />
+           <SmallCards w={'52px'} h={'52px'} icon={<FaFacebook size={24}/>} />
+           <SmallCards w={'52px'} h={'52px'} icon={<FaLinkedin  size={24}/>} />
+           <SmallCards w={'52px'} h={'52px'} icon={<FaInstagram  size={24}/>} />
         </div>
 
         

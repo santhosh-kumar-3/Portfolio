@@ -1,8 +1,8 @@
 import React from "react";
 
-const SmallCards = ({ icon }) => {
+const SmallCards = ({ icon,w,h }) => {
   return (
-      <div className="w-[52px] cursor-pointer h-[52px] flex items-center justify-center hover:text-white hover:bg-black border-2 rounded-md border-black">
+      <div className={`w-[${w}] h-[${h}] cursor-pointer flex items-center justify-center hover:text-white hover:bg-black border-2 rounded-md border-black`}>
         <div className="z-10 ">
           {icon}
         </div>

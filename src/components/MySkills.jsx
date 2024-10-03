@@ -23,12 +23,12 @@ const MySkills = () => {
   ];
 
   return (
-    <div className="w-full h-[90vh] my-auto font-sora pt-5">
-      <h1 className="text-[40px] text-center">
+    <div className="w-full h-[95vh] my-auto font-sora ">
+      <h1 className="text-[38px] text-center pt-5">
         My <span className="font-extrabold">Skills</span>
       </h1>
 
-      <div className="grid grid-cols-2 mt-14 sm:grid-cols-2 lg:grid-cols-5 gap-y-20 mx-8">
+      <div className="grid grid-cols-2 mt-16 sm:grid-cols-2 lg:grid-cols-5 gap-y-20 mx-8">
         {skills.map((item, index) => (
           <SkillsCard title={item.title} icon={item.icon} key={index} />
         ))}
