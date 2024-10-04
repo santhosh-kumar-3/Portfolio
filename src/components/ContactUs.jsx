@@ -1,28 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import SmallCards from "../cards/SmallCards";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const serviceId = "service_awe1f8n";
+    const templateId = "template_m0iadba";
+    const publicKey = "J6lXzQ3OhXJl6h1A8";
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      to_name: "SK",
+      message: formData.message,
+    };
+
+    emailjs
+      .send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log("Email sent successfully!", response);
+        alert("Email sent successfully!");
+        setFormData('')
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        alert("Failed to send email.");
+      });
+  };
+
   return (
     <div className="h-[80vh] w-full flex font-sora items-center">
       {/* Left side form */}
       <div className="w-[60%] h-full p-8 flex items-center">
-        <form className="flex flex-col space-y-5 w-[70%] mx-auto ">
+        <form
+          className="flex flex-col space-y-5 w-[70%] mx-auto"
+          onSubmit={handleSubmit}
+        >
           <input
             type="text"
+            name="name"
             placeholder="Your name"
             className="border border-gray-700 p-4 rounded-md focus:outline-none focus:ring-1 focus:ring-black text-custom-neutral"
+            onChange={handleChange}
+            value={formData.name}
           />
           <input
             type="email"
+            name="email"
             placeholder="Email"
             className="border border-gray-700 p-4 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
+            onChange={handleChange}
+            value={formData.email}
           />
           <textarea
+            name="message"
             placeholder="How can I help?"
             className="border border-gray-700 p-4 rounded-md focus:outline-none focus:ring-1 focus:ring-black h-32"
+            onChange={handleChange}
+            value={formData.message}
           ></textarea>
 
           <div className="flex items-center">

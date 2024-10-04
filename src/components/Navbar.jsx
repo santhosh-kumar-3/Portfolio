@@ -53,11 +53,14 @@ const Navbar = () => {
       </div>
 
       <div>
-        <button className="flex items-center bg-black text-white text-[16px] px-4 py-2 rounded-md hover:bg-custom-neutral">
+         <a 
+          href="/SanthoshkumarResume.pdf" 
+          download="Santhoshkumar_Resume.pdf"
+          className="flex items-center bg-black text-white text-[16px] px-4 py-2 rounded-md hover:bg-custom-neutral"
+        >
           <span className="mr-2">Resume</span>
-          <FiDownload/>
-          
-        </button>
+          <FiDownload />
+        </a>
       </div>
     </div>
   );
